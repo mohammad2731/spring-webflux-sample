@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.Objects;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -154,6 +155,11 @@ public class CreateContactTest {
         @Override
         public String getGithub() {
             return this.github;
+        }
+
+        @Override
+        public UUID getUuid() {
+            return UUID.randomUUID();
         }
     }
 }

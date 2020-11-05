@@ -2,7 +2,10 @@ package com.heroman.sample.infra.service.contact.dto;
 
 import com.heroman.sample.api.CreateContact;
 
+import java.util.UUID;
+
 public class CreateContactRequest implements CreateContact.CreateContactCommand {
+    private UUID uuid = UUID.randomUUID();
     private String name;
     private String phoneNumber;
     private String email;
@@ -52,5 +55,10 @@ public class CreateContactRequest implements CreateContact.CreateContactCommand 
 
     public String getGithub() {
         return github;
+    }
+
+    @Override
+    public UUID getUuid() {
+        return uuid;
     }
 }

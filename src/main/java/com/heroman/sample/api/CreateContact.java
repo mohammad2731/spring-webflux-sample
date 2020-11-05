@@ -8,6 +8,8 @@ import com.heroman.sample.domain.EmailAddress;
 import com.heroman.sample.domain.PhoneNumber;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.UUID;
+
 public class CreateContact implements RequestHandler<CreateContact.CreateContactCommand> {
     private final CreateContactDa da;
 
@@ -26,6 +28,7 @@ public class CreateContact implements RequestHandler<CreateContact.CreateContact
                 .setEmailAddress(EmailAddress.create(command.getEmail()))
                 .setOrganization(command.getOrganization())
                 .setGithub(command.getGithub())
+                .setUuid(command.getUuid())
         );
     }
 
@@ -39,6 +42,8 @@ public class CreateContact implements RequestHandler<CreateContact.CreateContact
         String getOrganization();
 
         String getGithub();
+
+        UUID getUuid();
     }
 
     public interface CreateContactDa {

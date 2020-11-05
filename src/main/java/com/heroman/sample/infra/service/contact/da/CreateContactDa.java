@@ -17,14 +17,15 @@ public class CreateContactDa extends NamedParameterJdbcDaoSupport implements Cre
 
     @Override
     public Contact persist(Contact contact) {
-        String q = "insert into contact (name, phoneNumber, emailAddress, organization, github) values" +
-                "(:name, :phoneNumber, :emailAddress, :organization, :github)";
+        String q = "insert into contact (name, phoneNumber, emailAddress, organization, github, uuid) values" +
+                "(:name, :phoneNumber, :emailAddress, :organization, :github, :uuid)";
         getNamedParameterJdbcTemplate()
                 .update(q, new MapSqlParameterSource("name", contact.getName())
                         .addValue("phoneNumber", contact.getPhoneNumber().getValue())
                         .addValue("emailAddress", contact.getEmailAddress().getValue())
                         .addValue("organization", contact.getOrganization())
                         .addValue("github", contact.getGithub())
+                        .addValue("uuid", contact.getUuid().toString())
                 );
         return contact;
     }

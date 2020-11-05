@@ -1,11 +1,14 @@
 package com.heroman.sample.domain;
 
+import java.util.UUID;
+
 public class Contact {
     private String name;
     private PhoneNumber phoneNumber;
     private EmailAddress emailAddress;
     private String organization;
     private String github;
+    private UUID uuid;
 
     public String getName() {
         return name;
@@ -50,5 +53,14 @@ public class Contact {
     public Contact setGithub(String github) {
         this.github = github;
         return this;
+    }
+
+    public Contact setUuid(UUID uuid) {
+        this.uuid = uuid;
+        return this;
+    }
+
+    public UUID getUuid() {
+        return uuid;
     }
 }

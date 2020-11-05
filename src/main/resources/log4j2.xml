@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <RollingRandomAccessFile name="LogToRollingRandomAccessFile" fileName="../logs/app.log"
+                                 filePattern="../logs/$${date:yyyy-MM-dd}/sample-%d{hh}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="500 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="500"/>
+        </RollingRandomAccessFile>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.heroman.sample" level="info" additivity="false">
+            <AppenderRef ref="LogToRollingRandomAccessFile"/>
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="LogToRollingRandomAccessFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

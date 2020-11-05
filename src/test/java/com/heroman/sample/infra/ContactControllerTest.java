@@ -48,7 +48,7 @@ public class ContactControllerTest {
                 .setPhoneNumber("123456")
                 .setEmail("user@test.com")
                 .setOrganization("Organization")
-                .setGithub("test");
+                .setGithub("burrsutter");
         callCreateContact(request);
 
         CreateContactResponse result =
@@ -82,7 +82,7 @@ public class ContactControllerTest {
                 .setPhoneNumber("123456")
                 .setEmail("user@test.com")
                 .setOrganization("Organization")
-                .setGithub("test");
+                .setGithub("burrsutter");
         callCreateContact(request);
         SearchContactRequest searchRequest = new SearchContactRequest()
                 .setName("test");
@@ -93,6 +93,6 @@ public class ContactControllerTest {
                 .andExpect(content()
                         .json("{\"date\":[{\"name\":\"test\",\"phoneNumber\":\"123456\"," +
                                 "\"emailAddress\":\"user@test.com\",\"organization\":\"Organization\"," +
-                                "\"github\":\"test\"}]}"));
+                                "\"github\":\"burrsutter\"}]}"));
     }
 }
