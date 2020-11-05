@@ -5,7 +5,7 @@ We tried to design simple application to demonstrate some good practices to deve
 - CQRS
 - Hexagonal architecture
 - Domain driven development
-- Union package architecture
+- onion architecture
 - Test driven development
 - Using spring boot and spring framework statck
 
@@ -30,7 +30,7 @@ maven will create a zip file in target directory and you can extract that and ex
 ### to stop application
 > $./stop.sh
 
-you can add some vm options such as '-Xms in vm.options
+you can add some vm options such as '-Xms in vmoptions
 
 # Test
 To test this system you can call system's two rest endpoints with any tools such as 'curl', 'wget', 'postman' or ... . 
